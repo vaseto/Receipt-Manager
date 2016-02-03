@@ -40,6 +40,11 @@ public class PersonCtrl {
 		}
 		
 			}
+	/**
+	 * 
+	 * @param name the name of the Person 
+	 * @return object of type Person searched by name
+	 */
 	public Person getPerson(String name) {
 		for (Person p : getPersons()) {
 			if (p.getName().equals(name)) {
@@ -48,19 +53,39 @@ public class PersonCtrl {
 		}
 		return null;
 	}
+	/**
+	 * 
+	 * @param name the name of the person
+	 * remove object of type Person searched by name 
+	 */
+	
 	public void removePerson(String name){
 		getPersons().remove(getPerson(name));
 		storeinFile();
 	}
-
+	/**
+	 * 
+	 * @param name the name of the Person 
+	 * @return obligation the amount of money which particular person searched by name owe
+	 */
 	public double getPersonObligation(String name) {
 		Person p = getPerson(name);
 		return p.getObligation();
 	}
+	/**
+	 * 
+	 * @param name the name of the Person 
+	 * @param obligation the amount of money which particular person  owe
+	 */
 	public void setObligation(String name,double obligation){
 		getPerson(name).setObligation(obligation);
 		storeinFile();
 	}
+	/**
+	 * add sum to obligation of particular Person's object and store it to a file
+	 * @param name the name of the Person 
+	 * @param sum the amount of money which wanted to add to obligation of particular person  
+	 */
 	public void addSum(String name, double sum){
 		Double newSum = getPersonObligation(name);
 		newSum += sum;
@@ -70,6 +95,11 @@ public class PersonCtrl {
 		storeinFile();
 
 	}
+	/**
+	 * subtract sum from obligation of particular Person's object and store it to a file
+	 * @param name the name of the Person 
+	 * @param sum the amount of money which wanted to subtract from obligation of particular person 
+	 */
 	public void sbutractObligation(String name, double sum){
 		Double newSum = getPersonObligation(name);
 		newSum -= sum;
@@ -77,7 +107,9 @@ public class PersonCtrl {
 		System.out.println(getPerson(name));
 		storeinFile();
 	}
-
+	/**
+	 * store all objects of type Person to the file persons.ser
+	 */
 	public void storeinFile() {
 	
 		try {

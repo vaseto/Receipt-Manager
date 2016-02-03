@@ -29,7 +29,7 @@ public class PersonCollection {
 	}
 	
 	/**
-	 *  get all objects from the file
+	 *  get all objects from the file "person.ser"
 	 */
 	private  void gettingObject(){
 		FileInputStream fi = null ;
